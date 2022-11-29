@@ -26,6 +26,6 @@ export const typeDefs = gql`
 
   type Query {
     tracksForHome: [Track!]!
-    track: Track
+    track(id: ID!): Track
   }
 `;
