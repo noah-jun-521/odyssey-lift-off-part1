@@ -1,10 +1,14 @@
 import { ApolloServer } from "apollo-server";
-import { mocks } from "./mocks.js";
+import { TrackAPI } from "./datasources/track-api.js";
+import resolvers from "./resolvers.js";
 import { typeDefs } from "./schema.js";
 
 const server = new ApolloServer({
   typeDefs,
-  mocks,
+  resolvers,
+  dataSources: () => ({
+    trackAPI: new TrackAPI(),
+  }),
 });
 
 server.listen().then(() => {
