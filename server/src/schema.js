@@ -8,6 +8,8 @@ export const typeDefs = gql`
     thumbnail: String
     length: Int
     modulesCount: Int
+    description: String
+    numberOfViews: Int
   }
 
   type Author {
@@ -16,7 +18,14 @@ export const typeDefs = gql`
     photo: String
   }
 
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
+  }
+
   type Query {
     tracksForHome: [Track!]!
+    track: Track
   }
 `;
