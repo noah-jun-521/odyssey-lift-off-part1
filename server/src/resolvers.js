@@ -1,16 +1,10 @@
-const resolvers = {
+export const resolvers = {
   Query: {
-    tracksForHome: (_, _, context) => {
-      const { dataSources } = context;
-      return dataSources.trackAPI.getTracksForHome();
-    },
+    tracksForHome: (_, __, { dataSources }) =>
+      dataSources.trackAPI.getTracksForHome(),
   },
-
   Track: {
-    author: ({ authorId }, _, { dataSources }) => {
-      return dataSources.trackAPI.getAuthor(authorId);
-    },
+    author: ({ authorId }, _, { dataSources }) =>
+      dataSources.trackAPI.getAuthor(authorId),
   },
 };
-
-export default resolvers;
